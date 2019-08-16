@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
 	"os"
+	"os/signal"
 	"strings"
 )
 
@@ -15,28 +17,55 @@ func check(e error) {
 	}
 }
 
+func print_usage() {
+	fmt.Println("Usage: lit.go [opts] [file]")
+	fmt.Println("Opts:")
+	fmt.Println(TAB + "--stdin")
+}
+
+func contains(s []byte, e uint8) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
-	args := os.Args[1:]
+	var args []string
+	if len(os.Args) < 2 {
+		return
+	}
+	args = os.Args[1:]
 	for i := 0; i < len(args); i++ {
 		arg := args[i]
 		if strings.Compare(arg, "--usage") == 0 {
-			fmt.Println("Usage: lit [opts] [file]")
-			fmt.Println("Opts:")
-			fmt.Println(TAB + "--usage")
-			fmt.Println(TAB + "--stdin")
+			print_usage()
 			return
-			fmt.Println("shouldnt happen")
 		}
-		fmt.Println("for loop")
 	}
 	//buffer := make([]string, 32)
-	if strings.Compare(args[0], "--stdin") != 0 {
+	var data []byte
+	if strings.Compare(args[0], "--stdin") == 0 {
+		scanner := bufio.NewScanner(os.Stdin)
+		for scanner.Scan() {
+			data = []byte(scanner.Text())
+			if contains(data, uint8(4)) {
+				return
+			}
+			fmt.Println(string(data)) // Println will add back the final '\n'
+		}
+		if err := scanner.Err(); err != nil {
+			fmt.Fprintln(os.Stderr, "reading standard input:", err)
+		}
+	} else {
 		path := args[0]
 		data, err := ioutil.ReadFile(path)
+		a := &data
+		fmt.Println(a)
 		check(err)
-		fmt.Println("here if")
-		fmt.Print(string(data))
 	}
-	fmt.Println("prob not")
+	fmt.Print(string(data))
 	return
 }
