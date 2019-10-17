@@ -20,8 +20,8 @@ Guess what? Lists are used to group information into lists.
 The characters used to define different types of lists are specific to what (docset)[#about/-docset] is in use.
 By default Lists are defined as:
 ```
-`+ item
-+ item 2`
++ item
++ item 2
 ```
 
 ## Notes
