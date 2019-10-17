@@ -1,6 +1,6 @@
 # About Litterarum
 Litterarum is documentation system for my personal projects.
-Litterarum is far superior to [Markdown](https://daringfireball.net/projects/markdown/) for many reasons.
+Litterarum is far superior to [Markdown](https://daringfireball.net/projects/markdown/) for many reasons. None of which I will name because I am an arrogant nonce.
 
 # Language Specificiation
 
