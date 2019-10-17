@@ -67,10 +67,10 @@ References are defined as:
 Whitespace is ignored outside of [Blocks](#blocks) and [References](#references)
 Sections, subsections, and notes are case insensitive.
 
-## PARSER
+## Parser
 The parser creates a file in either Markdown format or HTML format.
 
-## DOCSET
+## Docset
 The default `docset` is described within this document but custom `docset`s can be written.
 
 # Credits #
