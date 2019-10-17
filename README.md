@@ -6,7 +6,7 @@ Litterarum is far superior to [Markdown](https://daringfireball.net/projects/mar
 
 ## Sections
 Sections are used to break up text into categories.
-The semantic meaning of a Section is specific to what (docset)[#about/-docset] is in use.
+The semantic meaning of a Section is specific to what (docset)[#about/docset] is in use.
 Sections are defined as:
 `#section#`
 
@@ -17,7 +17,7 @@ Subsections are defined as:
 
 ## Lists
 Guess what? Lists are used to group information into lists.
-The characters used to define different types of lists are specific to what (docset)[#about/-docset] is in use.
+The characters used to define different types of lists are specific to what (docset)[#about/docset] is in use.
 By default Lists are defined as:
 ```
 + item
